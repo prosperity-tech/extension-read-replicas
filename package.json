@@ -30,7 +30,7 @@
     "build": "tsup src/index.ts --format=cjs,esm --dts",
     "demo": "node -r esbuild-register demo/index.ts",
     "lint": "eslint . && prettier -c .",
-    "prepare": "pnpm build",
+    "prepare": "npm run build",
     "prepublishOnly": "pnpm build",
     "test": "jest",
     "typecheck": "tsc"
