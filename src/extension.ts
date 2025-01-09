@@ -24,7 +24,7 @@ const readOperations = [
 
 export const readReplicas = (options: ReplicasOptions, configureReplicaClient?: ConfigureReplicaCallback) =>
   Prisma.defineExtension((client) => {
-    const PrismaClient = Object.getPrototypeOf(client).constructor
+    const clientConstructor = Object.getPrototypeOf(client).constructor
     const datasourceName = Object.keys(options).find((key) => !key.startsWith('$'))
     if (!datasourceName) {
       throw new Error(`Read replicas options must specify a datasource`)
@@ -51,7 +51,7 @@ export const readReplicas = (options: ReplicasOptions, configureReplicaClient?: 
 
       replicaManagerOptions = {
         replicaUrls: replicaUrls,
-        clientConstructor: PrismaClient,
+        clientConstructor,
         configureCallback: configureReplicaClient,
       }
     } else if (options.replicas) {
