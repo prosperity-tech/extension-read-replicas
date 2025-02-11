@@ -50,7 +50,7 @@
     "@types/node": "16",
     "@typescript-eslint/eslint-plugin": "^6.2.1",
     "@typescript-eslint/parser": "^6.2.1",
-    "esbuild": "^0.18.17",
+    "esbuild": "^0.25.0",
     "esbuild-node-externals": "^1.8.0",
     "esbuild-register": "^3.4.2",
     "eslint": "^8.46.0",
